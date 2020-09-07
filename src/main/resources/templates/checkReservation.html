@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/header :: header" />
+
+<body>
+<div th:replace="fragments/navbar :: navbar" />
+
+<h1>Check time/ Cancel reservation</h1>
+
+<form action="#" th:action="@{/checkReservation}" method="post">
+    <div>
+        <label>Reservation Code:</label>
+        <input required type="text" name="reservationCode"/>
+    </div>
+    <div>
+        <label>Validation Code:</label>
+        <input required type="text" name="validationCode"/>
+    </div>
+    <input type="submit" value="Check">
+</form>
+</body>
+</html>

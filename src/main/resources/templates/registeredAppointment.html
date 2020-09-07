@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head th:include="fragments/header :: header" />
+<body>
+<div th:replace="fragments/navbar :: navbar" />
+
+<h1>Successfully registered</h1>
+<p th:text="'Name: ' + ${customer.name}" />
+<p th:text="'Surname: ' + ${customer.surname}" />
+<p th:text="'Registration Code: ' + ${customer.reservationCode}" />
+<p th:text="'Validation Code: ' + ${customer.validationCode}" />
+<!--<a href="/Home">Home</a>-->
+</body>
+</html>

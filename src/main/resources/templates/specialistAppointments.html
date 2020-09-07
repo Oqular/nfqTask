@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www/thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head th:include="fragments/header :: header" />
+<body>
+<div th:replace="fragments/navbar :: navbar" />
+
+<h1>[[${iii}]]</h1>
+
+<h3>Ongoing Appointment</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Reservation</th>
+        <th></th>
+    </tr>
+
+    <tr th:each="active: ${activeApp}">
+        <td th:text="${active.name}"></td>
+        <td th:text="${active.surname}"></td>
+        <td th:text="${active.reservationCode}"></td>
+        <td>
+            <form action="#" th:action="@{/activeVisitEnd}" method="post">
+                <input type="hidden" name="activeId" th:value="${active.id}"/>
+                <input type="submit" value="End appointment"/>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<h3>Appointment list</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Reservation</th>
+        <th> </th>
+        <th> </th>
+    </tr>
+
+    <tr th:each="appointment: ${appointmentArr}">
+        <td th:text="${appointment.name}"></td>
+        <td th:text="${appointment.surname}"></td>
+        <td th:text="${appointment.reservationCode}"></td>
+        <td>
+            <form action="#" th:action="@{/specialistAppointments}" method="post">
+                <input type="hidden" name="appointmentId" th:value="${appointment.id}"/>
+                <input type="submit" value="Begin"/>
+            </form>
+        </td>
+        <td>
+            <form action="#" th:action="@{/specialistCancel}" method="post">
+                <input type="hidden" name="visitId" th:value="${appointment.id}"/>
+                <input type="submit" value="Cancel"/>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/header :: header" />
+
+<body>
+<div th:replace="fragments/navbar :: navbar" />
+<h1>Department screen</h1>
+
+<form action="#" th:action="@{/departmentScreen}" method="post">
+    <div>
+        <label>Reservation Code:</label>
+        <input required type="text" name="reservationCode"/>
+    </div>
+    <input type="submit" value="Check">
+</form>
+</body>
+</html>

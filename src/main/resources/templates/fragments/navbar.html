@@ -1,0 +1,21 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="navbar" role="navigation">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li th:if="${#httpServletRequest.remoteUser} == null"><a href="/bookAppointment">Book appointment</a></li>
+        <li th:if="${#httpServletRequest.remoteUser} == null"><a href="/checkReservation">Check time</a></li>
+        <li th:if="${#httpServletRequest.remoteUser} == null"><a href="/departmentScreen">Department screen</a></li>
+        <li><a href="/add">Add</a></li>
+        <li th:if="${#httpServletRequest.remoteUser} == null"><a href="/login">Login</a></li>
+        <li th:if="${#httpServletRequest.remoteUser} != null"><a href="/specialistAppointments">Appointmets</a></li>
+        <li style="float:right" th:if="${#httpServletRequest.remoteUser} != null">
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Log Out">
+            </form>
+            <a href="#contact">[[${#httpServletRequest.remoteUser}]]</a>
+        </li>
+    </ul>
+</div>
+
+</html>

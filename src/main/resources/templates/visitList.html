@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/header :: header" />
+
+<body>
+<div th:replace="fragments/navbar :: navbar" />
+
+<!--<p th:if="${current} != null" th:text="Current visit  ${current.reservationCode}"/>-->
+<h3 th:if="${current} != null">Current visit: [[${current.reservationCode}]]</h3>
+<h1>Visit List</h1>
+<table>
+    <tr>
+        <th>Nr.</th>
+        <th>Reservation</th>
+    </tr>
+
+    <tr th:each="appointment, i: ${list}">
+        <td th:text="${i.count}"></td>
+        <td th:text="${appointment.reservationCode}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

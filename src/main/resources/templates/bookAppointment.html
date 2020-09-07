@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/header :: header" />
+
+<body>
+<div th:replace="fragments/navbar :: navbar" />
+
+<h1>Book Appointment:</h1>
+<form action="#" th:action="@{/bookAppointment}" th:object="${customer}" method="post">
+    <div>
+        <label>Name:</label>
+        <input required="required" type="text" th:field="*{name}" id="name" placeholder="Name" />
+    </div>
+    <div>
+        <label>Surname:</label>
+        <input required="required" type="text" th:field="*{surname}" id="surname" placeholder="Surname" />
+    </div>
+    <div>
+        <select th:field="*{specialist}">
+            <option th:each="spec: ${specArr}" th:value="${spec.id}" th:text="${spec.name} + ' ' + ${spec.surname}">
+            </option>
+
+        </select>
+    </div>
+    <input type="submit" value="Book an appointment">
+</form>
+
+</body>
+</html>
