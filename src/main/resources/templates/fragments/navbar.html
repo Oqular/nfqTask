@@ -6,7 +6,7 @@
         <li th:if="${#httpServletRequest.remoteUser} == null"><a href="/bookAppointment">Book appointment</a></li>
         <li th:if="${#httpServletRequest.remoteUser} == null"><a href="/checkReservation">Check time</a></li>
         <li th:if="${#httpServletRequest.remoteUser} == null"><a href="/departmentScreen">Department screen</a></li>
-        <li><a href="/add">Add</a></li>
+<!--        <li><a href="/add">Add</a></li>-->
         <li th:if="${#httpServletRequest.remoteUser} == null"><a href="/login">Login</a></li>
         <li th:if="${#httpServletRequest.remoteUser} != null"><a href="/specialistAppointments">Appointmets</a></li>
         <li style="float:right" th:if="${#httpServletRequest.remoteUser} != null">
